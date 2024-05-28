@@ -16,3 +16,22 @@ body {
   background: #f0f0f0 url(./images/background.jpg) no-repeat fixed center;
   background-size: cover;
 }
+::selection {
+  color: #fff;
+  background: #4d59fb;
+}
+
+.wrapper {
+  width: 400px;
+  border-radius: 30px;
+  background: gray;
+  padding: 2.2rem;
+}
+
+.wrapper header {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
