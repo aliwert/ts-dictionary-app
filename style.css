@@ -21,17 +21,47 @@ body {
   background: #4d59fb;
 }
 
-.wrapper {
+.container {
   width: 400px;
   border-radius: 30px;
-  background: gray;
+  background: #fff;
   padding: 2.2rem;
+  color: blueviolet;
 }
 
-.wrapper header {
+.container header {
   font-size: 2rem;
   font-weight: 600;
   text-align: center;
   margin-bottom: 20px;
   text-transform: uppercase;
+}
+.container .search {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.search input {
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 0 40px;
+  border: 1px solid #ccc;
+}
+
+.search input:focus {
+  border: 2px solid #4d59fb;
+}
+
+.search input::placeholder {
+  color: #999;
+}
+
+.search :where(i, span) {
+  position: absolute;
+  top: 50%;
+  color: #999;
+  transform: translateY(-50%);
 }
