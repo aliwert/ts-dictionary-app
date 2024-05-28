@@ -50,6 +50,16 @@ body {
   padding: 0 40px;
   border: 1px solid #ccc;
 }
+.pronun {
+  border-left: 3px solid #4d59fb;
+  border: 3px solid #4d59fb;
+  text-transform: uppercase;
+  color: blueviolet;
+  padding: 8px;
+  &:hover {
+    cursor: pointer;
+  }
+}
 
 .search input:focus {
   border: 2px solid #4d59fb;

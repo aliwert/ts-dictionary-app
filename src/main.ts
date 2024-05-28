@@ -81,24 +81,14 @@ removeIcon.addEventListener("click", () => {
     "Type any existing word and press enter to get meaning, example, synonyms, etc.";
 });
 
-// define a function named pronunciation using arrow function syntax
-const pronunciation = (): void => {
-  // retrieve the value of the input element with the id "input"
-  const text: string = (document.getElementById("input") as HTMLInputElement)
-    .value;
+// Define a function named pronunciation using arrow function syntax
+const pronunciation = () => {
+  // Retrieve the value of the input element with the id "input"
+  let text = (document.getElementById("input") as HTMLInputElement).value;
 
-  // create a new SpeechSynthesisUtterance object with the retrieved text
-  const speech: SpeechSynthesisUtterance = new SpeechSynthesisUtterance(text);
+  // Create a new SpeechSynthesisUtterance object with the retrieved text
+  let speech = new SpeechSynthesisUtterance(text);
 
-  // use the speech synthesis API to speak the utterance
+  // Use the speech synthesis API to speak the utterance
   speechSynthesis.speak(speech);
 };
-
-// add an event listener to the document for the "keypress" event
-document.addEventListener("keypress", (e: KeyboardEvent): void => {
-  // check if the key that was pressed is "Enter"
-  if (e.key === "Enter") {
-    // call the pronunciation function if "Enter" key is pressed
-    pronunciation();
-  }
-});
