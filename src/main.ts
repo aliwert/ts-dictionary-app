@@ -5,6 +5,7 @@ const volume: HTMLElement = container.querySelector(".word i")!;
 const infoText: HTMLElement = container.querySelector(".info-text")!;
 const synonyms: HTMLElement = container.querySelector(".synonyms .list")!;
 const removeIcon: HTMLElement = container.querySelector(".search span")!;
+// const pronunciation: HTMLElement = container.querySelector(".pronunciation");
 
 // Declaring a variable to store audio
 let audio: HTMLAudioElement;
@@ -55,6 +56,7 @@ function fetchApi(word: string): void {
       infoText.innerHTML = `Can't find the meaning of <span>"${word}"</span>. Please, try to search for another word.`;
     });
 }
+
 // Event listeners
 searchInput.addEventListener("keyup", (e: KeyboardEvent) => {
   let word: string = (e.target as HTMLInputElement).value.trim();
@@ -77,4 +79,26 @@ removeIcon.addEventListener("click", () => {
   (infoText as HTMLElement).style.color = "#9A9A9A";
   infoText.innerHTML =
     "Type any existing word and press enter to get meaning, example, synonyms, etc.";
+});
+
+// define a function named pronunciation using arrow function syntax
+const pronunciation = (): void => {
+  // retrieve the value of the input element with the id "input"
+  const text: string = (document.getElementById("input") as HTMLInputElement)
+    .value;
+
+  // create a new SpeechSynthesisUtterance object with the retrieved text
+  const speech: SpeechSynthesisUtterance = new SpeechSynthesisUtterance(text);
+
+  // use the speech synthesis API to speak the utterance
+  speechSynthesis.speak(speech);
+};
+
+// add an event listener to the document for the "keypress" event
+document.addEventListener("keypress", (e: KeyboardEvent): void => {
+  // check if the key that was pressed is "Enter"
+  if (e.key === "Enter") {
+    // call the pronunciation function if "Enter" key is pressed
+    pronunciation();
+  }
 });
