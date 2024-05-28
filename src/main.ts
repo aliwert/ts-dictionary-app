@@ -42,3 +42,16 @@ function data(result: any, word: string): void {
     }
   }
 }
+// Function to fetch data from API
+function fetchApi(word: string): void {
+  container.classList.remove("active");
+  infoText.style.color = "#000";
+  infoText.innerHTML = `Searching the meaning of <span>"${word}"</span>`;
+  const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((result) => data(result, word))
+    .catch(() => {
+      infoText.innerHTML = `Can't find the meaning of <span>"${word}"</span>. Please, try to search for another word.`;
+    });
+}
