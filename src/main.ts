@@ -55,3 +55,10 @@ function fetchApi(word: string): void {
       infoText.innerHTML = `Can't find the meaning of <span>"${word}"</span>. Please, try to search for another word.`;
     });
 }
+// Event listeners
+searchInput.addEventListener("keyup", (e: KeyboardEvent) => {
+  let word: string = (e.target as HTMLInputElement).value.trim();
+  if (e.key === "Enter" && word) {
+    fetchApi(word);
+  }
+});
